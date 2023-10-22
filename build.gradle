@@ -20,7 +20,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 
-version = '1.0'
+version = '1.3'
 group = 'com.eithan.oreutils' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'oreutils'
 
