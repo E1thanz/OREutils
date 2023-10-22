@@ -43,7 +43,7 @@ public class oreutils {
 //    	Minecraft.getInstance().player.sendMessage(new TextComponent(event.getMessage().getString().split(":")[0].split(" ")[2]), Util.NIL_UUID);
 		if(Minecraft.getInstance().player == null)
 			return;
-		if (event.getMessage().getString().contains("has joined the network")){
+		if (event.getMessage().getString().contains("has joined the network") && BlockModClientConfigs.AutoWB.get()){
 			for(String blocked_word : BlockModClientConfigs.Blocked_Words.get())
 				if (event.getMessage().getString().toLowerCase().split(" ")[0].contains(blocked_word))
 					return;
@@ -116,10 +116,9 @@ public class oreutils {
 //    				Minecraft.getInstance().player.sendMessage(new TextComponent("kicked player"), Util.NIL_UUID);
 //    				kickDelay = 12;
 //    			}
-    			if(BlockModClientConfigs.HideBlocked.get() && event.getPlayer() instanceof AbstractClientPlayer) {
+    			if(BlockModClientConfigs.HideBlocked.get() && event.getPlayer() instanceof AbstractClientPlayer p1) {
         			event.setCanceled(true);
-        			AbstractClientPlayer p1 = (AbstractClientPlayer) event.getPlayer();
-    				Component p2 = event.getPlayer().getName();
+					Component p2 = event.getPlayer().getName();
     				PoseStack p3 = event.getPoseStack();
     				MultiBufferSource p4 = event.getMultiBufferSource();
     				int p5 = event.getPackedLight();
@@ -141,7 +140,9 @@ public class oreutils {
         HideBlockedSetCommand.register(event.getDispatcher());
         KickOnSightSetCommand.register(event.getDispatcher());
 		CompetitionCommand.register(event.getDispatcher());
+		SeasonalCommand.register(event.getDispatcher());
 		BuildCommand.register(event.getDispatcher());
 		SchoolCommand.register(event.getDispatcher());
+		AutoWBCommand.register(event.getDispatcher());
     }
 }
