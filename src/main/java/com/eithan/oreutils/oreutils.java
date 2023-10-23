@@ -68,6 +68,8 @@ public class oreutils {
     
     @SubscribeEvent
     public void ticker(ClientTickEvent event) {
+		if (!BlockModClientConfigs.KickOnSight.get())
+			return;
     	if (Minecraft.getInstance().player == null)
     		return;
 		if (BlockModClientConfigs.FirstPosX.get() == 0 && BlockModClientConfigs.FirstPosZ.get() == 0 && BlockModClientConfigs.SecondPosX.get() == 0 && BlockModClientConfigs.SecondPosZ.get() ==0)
@@ -87,7 +89,7 @@ public class oreutils {
 //			if(!(inZA || inZB))
 //				continue;
     		for(String blocked_word : BlockModClientConfigs.Blocked_Words.get()) {
-    			if(name.toLowerCase().equals(blocked_word) && kickDelay == 0) {
+    			if(name.toLowerCase().contains(blocked_word) && kickDelay == 0) {
     				Minecraft.getInstance().player.chat("/p k "+name);
     				Minecraft.getInstance().player.sendMessage(new TextComponent("kicked player "+name), Util.NIL_UUID);
     				kickDelay = 13;
@@ -101,6 +103,8 @@ public class oreutils {
     
     @SubscribeEvent
     public void renderCancel(Pre event) {
+		if(!BlockModClientConfigs.HideBlocked.get())
+			return;
     	String name = event.getPlayer().getName().getString();
     	for(String blocked_word : BlockModClientConfigs.Blocked_Words.get()){
     		if(name.toLowerCase().equals(blocked_word)) {
@@ -116,7 +120,7 @@ public class oreutils {
 //    				Minecraft.getInstance().player.sendMessage(new TextComponent("kicked player"), Util.NIL_UUID);
 //    				kickDelay = 12;
 //    			}
-    			if(BlockModClientConfigs.HideBlocked.get() && event.getPlayer() instanceof AbstractClientPlayer p1) {
+    			if(event.getPlayer() instanceof AbstractClientPlayer p1) {
         			event.setCanceled(true);
 					Component p2 = event.getPlayer().getName();
     				PoseStack p3 = event.getPoseStack();
