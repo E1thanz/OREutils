@@ -66,10 +66,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'blockem'
+            property 'forge.enabledGameTestNamespaces', 'oreutils'
 
             mods {
-                blockem {
+                oreutils {
                     source sourceSets.main
                 }
             }
@@ -83,10 +83,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'blockem'
+            property 'forge.enabledGameTestNamespaces', 'oreutils'
 
             mods {
-                blockem {
+                oreutils {
                     source sourceSets.main
                 }
             }
@@ -111,10 +111,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'blockem'
+            property 'forge.enabledGameTestNamespaces', 'oreutils'
 
             mods {
-                blockem {
+                oreutils {
                     source sourceSets.main
                 }
             }
@@ -128,10 +128,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'blockem', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'oreutils', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                blockem {
+                oreutils {
                     source sourceSets.main
                 }
             }
@@ -175,12 +175,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "blockem",
-                "Specification-Vendor"    : "blockemsareus",
+                "Specification-Title"     : "oreutils",
+                "Specification-Vendor"    : "eithan",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "blockemsareus",
+                "Implementation-Vendor"   : "eithan",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
