@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "oreutils",
   "version": "${version}",
 
-  "name": "Example Mod",
+  "name": "OREutils Fabric",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Me!"
@@ -13,17 +13,20 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT license",
+  "icon": "assets/oreutils/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.eithan.oreutils.OREutils"
+    ],
+    "client": [
+      "net.eithan.oreutils.OREutilsClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "oreutils.mixins.json"
   ],
 
   "depends": {
